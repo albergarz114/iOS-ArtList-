@@ -1,0 +1,4 @@
+// Config.xcconfig.example
+// RENAME THIS FILE TO Config.xcconfig and add your actual API key
+
+API_KEY = YOUR_ARTSEARCH_API_KEY_HERE 
