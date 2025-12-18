@@ -34,7 +34,10 @@ final class ImageCacheTests: XCTestCase {
         print("✅ Basic cache functionality test passed")
     }
     
+    
+    
     func testCacheStatistics() {
+        
         let cache = ImageCache.shared
         cache.clearCache()
         cache.resetStats()
@@ -46,6 +49,7 @@ final class ImageCacheTests: XCTestCase {
         _ = cache.getImage(for: "url1.jpg") // Should hit
         _ = cache.getImage(for: "url2.jpg") // Should miss
         
+        
         let rawStats = cache.getRawStats()
         XCTAssertGreaterThanOrEqual(rawStats.saves, 1)
         XCTAssertGreaterThanOrEqual(rawStats.memoryHits, 0)
@@ -53,6 +57,8 @@ final class ImageCacheTests: XCTestCase {
         
         print("✅ Cache statistics test passed")
     }
+    
+    
     
     func testClearCache() {
         let cache = ImageCache.shared

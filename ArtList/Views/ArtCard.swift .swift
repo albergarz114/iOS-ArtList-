@@ -40,6 +40,8 @@ struct APIArtCard: View {
     
 }
     
+
+
 struct SavedArtCard: View {
         
         let savedArts: SavedArts

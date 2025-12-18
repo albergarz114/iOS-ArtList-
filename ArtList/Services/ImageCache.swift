@@ -26,6 +26,7 @@ class ImageCache {
     private var saveCount = 0
     
     
+    
     // 4. Private initializer
     private init() {
         // Create cache directory if it doesn't exist
@@ -39,6 +40,7 @@ class ImageCache {
             print("Error creating cache directory: \(error)")
         }
     }
+    
     
     
     // 5. Get image from cache
@@ -64,6 +66,8 @@ class ImageCache {
         return nil
     }
     
+    
+    
     // 6. Save image to cache
     func saveImage(_ image: UIImage, for urlString: String) {
         // Save to memory cache
@@ -74,6 +78,8 @@ class ImageCache {
             self.saveToDisk(image: image, urlString: urlString)
         }
     }
+    
+    
     
     // 7. Helper to save to disk
     private func saveToDisk(image: UIImage, urlString: String) {
@@ -92,6 +98,8 @@ class ImageCache {
         }
     }
     
+    
+    
     // 8. Helper to load from disk
     private func loadFromDisk(urlString: String) -> UIImage? {
         let filename = urlString.replacingOccurrences(of: "/", with: "_")
@@ -104,6 +112,8 @@ class ImageCache {
         }
         return image
     }
+    
+    
     
     // 9. Clear cache (optional)
     func clearCache() {
@@ -128,6 +138,7 @@ class ImageCache {
             print("Error clearing cache: \(error)")
         }
     }
+    
     
     
     // 10. NEW: Get cache statistics

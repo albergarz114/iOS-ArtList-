@@ -60,10 +60,11 @@ struct ListView: View {
             }
             .padding()
             
-            if showSaved {
+            switch showSaved {
                 // Use ScrollView for saved items (allows custom buttons)
+            case true:
                 ScrollView {
-                    LazyVStack(spacing: 16) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
                         ForEach(savedArts) { savedArt in
                             SavedArtCard(savedArts: savedArt, onUpdate: {
                                 repository?.starArts(savedArt)
@@ -82,7 +83,7 @@ struct ListView: View {
                     }
                     .padding()
                 }
-            } else {
+            case false:
                 // Use List for API items (standard behavior)
                 List {
                     ForEach(model.artworks) { artwork in
@@ -96,6 +97,8 @@ struct ListView: View {
                 }
                 .listStyle(.plain)
             }
+                
+            
         }
         .onAppear {
             if repository == nil {
